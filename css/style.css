@@ -1,0 +1,138 @@
+:root {
+  --bg: #0a0a0a;
+  --fg: #e0e0e0;
+  --muted: #5a5a5a;
+  --accent: #ffffff;
+  --gap: 3px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Header / Nav */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+}
+
+.site-name {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-left: 32px;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+}
+
+/* Photo grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  padding: var(--gap);
+}
+
+.photo-grid img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: opacity 0.25s;
+}
+
+.photo-grid img:hover {
+  opacity: 0.8;
+}
+
+/* Text pages */
+.page {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.page-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+
+.page p {
+  line-height: 1.85;
+  color: var(--fg);
+  margin-bottom: 20px;
+}
+
+.page a {
+  color: var(--fg);
+  border-bottom: 1px solid var(--muted);
+  transition: border-color 0.2s;
+}
+
+.page a:hover {
+  border-color: var(--accent);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 56px 40px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+footer a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+footer .sep {
+  margin: 0 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  header { padding: 20px 24px; }
+  .photo-grid { grid-template-columns: 1fr; }
+  .page { margin: 56px auto; padding: 0 24px; }
+}
